@@ -1,0 +1,9 @@
+main {
+    background: gold;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 800px 800px;
+    place-items: center;
+    justify-content: center;
+    padding: 50px;
+}
