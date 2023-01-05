@@ -1,13 +1,39 @@
 import React from 'react'
 import css from '../../../styles/PersonalInputs.css'
-
+import Experience from './Experiences'
+import Education from './Education'
 
 export default function PersonalInputs(props) {
+    let experienceElements = props.experiences.map((experience, index) => <Experience
+    id = {index}
+    jobPosition = {experience.jobPosition}
+    jobCompany = {experience.jobCompany}
+    jobCity = {experience.jobCity}
+    jobYearStarted = {experience.jobYearStarted}
+    jobYearFinished = {experience.jobYearFinished}
+    increaseExperienceCount={props.increaseExperienceCount}
+    decreaseExperienceCount={props.experienceCount !== 1 ? props.decreaseExperienceCount : () => {alert(`Need at least ${props.experienceCount} experience`)}}
+    handleChange={props.updateExperience}
+/>   )
+
+    let educationElements = props.educations.map((education, index) => <Education
+    id = {index}
+    universityName={education.universityName}
+    universityCity={education.universityCity}
+    universityDegree={education.universityDegree}
+    universitySubject={education.universitySubject}
+    universityYearStarted={education.universityYearStarted}
+    universityYearFinished={education.universityYearFinished}
+    increaseEducationCount={props.increaseEducationCount}
+    decreaseEducationCount={props.educationCount !== 1 ? props.decreaseEducationCount : () => {alert(`Need at least ${props.educationCount} education`)}}
+    handleChange={props.updateEducation}
+    />   )
+
     return(
     <>
         <div className='personal-inputs'>
             <h2>Personal Information</h2>
-            <form onChange={props.handleChange}>
+            <form onChange={props.handlePersonalInfoChange}>
                 <input type="text" placeholder='First Name' id='firstName' value={props.firstName}></input>
                 <input type="text" placeholder='Last Name' id='lastName' value={props.lastName}></input>
                 <input type="text" placeholder='Title' id ='title' value={props.title}></input>
@@ -15,33 +41,17 @@ export default function PersonalInputs(props) {
                 <input type="tel" placeholder='Phone number' id='phone' value={props.phone}></input>
                 <input type="email" placeholder='Email' id='email' value={props.email}></input>
                 <textarea type="text" placeholder='Description' id='description' value={props.description}></textarea>
-                <button type="button" onClick={() => {alert('hi')}}>Add Photo</button>
             </form>
-            <h2>Experience</h2>
-            <form onChange={props.handleChange}>
-                <input type="text" placeholder='Position' id='jobPosition' value={props.jobPosition}></input>
-                <input type="text" placeholder='Company' id='jobCompany' value={props.jobCompany}></input>
-                <input type="text" placeholder='City' id='jobCity' value={props.jobCity}></input>
-                <input type="text" placeholder='Year started' id='jobYearStarted' value={props.jobYearStarted}></input>
-                <input type="tel" placeholder='Year finished' id='jobYearFinished' value={props.jobYearFinished}></input>
-                <button type="button">Delete</button>
-                <button type="button">Add</button>
-            </form>
+            <h2>Experiences</h2>
+            {experienceElements}     
+            <button type="button" class="add-button" onClick={props.increaseExperienceCount}>Add new experience</button>
             <h2>Education</h2>
-            <form onChange={props.handleChange}>
-                <input type="text" placeholder='University name' id='universityName' value={props.universityName}></input>
-                <input type="text" placeholder='City' id='universityCity' value={props.universityCity}></input>
-                <input type="text" placeholder='Degree' id='universityDegree' value={props.universityDegree}></input>
-                <input type="text" placeholder='Subject' id='universitySubject' value={props.universitySubject}></input>
-                <input type="text" placeholder='Year started' id='universityYearStarted' value={props.universityYearStarted}></input>
-                <input type="tel" placeholder='Year finished' id='universityYearFinished' value={props.universityYearFinished}></input>
-                <button type="button">Delete</button>
-                <button type="button">Add</button>
-            </form>
+            {educationElements}
+            <button type="button" class="add-button" onClick={props.increaseEducationCount}>Add new education</button>
+
             <div className='control-buttons'>
-                <button type="button">Generate PDF</button>
-                <button type="button">Load Example</button>
-                <button type="button">Reset</button>
+                <button type="button" onClick={props.loadExample}>Load Example</button>
+                <button type="button" onClick={props.reset}>Reset</button>
             </div>
 
 

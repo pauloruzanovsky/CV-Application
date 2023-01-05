@@ -8,21 +8,25 @@ textarea {
     resize: none;
     border: 0px;
     border-radius: 5px;
+    padding: 5px;
+
 }
 
 .personal-inputs {
-    background: rgb(245, 228, 134);;
+    display: flex;
+    flex-direction: column;
+    background: rgb(238, 238, 238);
     min-width: 700px;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgb(0, 0, 0)
+    box-shadow: 0px 0px 10px rgb(0, 0, 0);
+    gap: 5px;
 }
 
 form {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    margin-bottom: 20px;
 }
 
 input {
@@ -35,11 +39,12 @@ input {
 h2 {
     font-size: 20px;
     color:rgb(54, 54, 54);
+    margin-top: 20px;
 }
 
 button {
     border: 0px;
-    background: #171219;
+    background: #465775;
     color: white;
     height: 30px;
     border-radius: 5px;
@@ -56,8 +61,12 @@ button:active {
 }
 
 .control-buttons {
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
 }
 
+.add-button {
+    margin-top: 10px;
+}

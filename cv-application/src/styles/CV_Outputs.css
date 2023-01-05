@@ -1,26 +1,37 @@
 .cv-output {
-    display: grid;
-    grid-template-rows: 1fr 5fr;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgb(0, 0, 0);
     min-width: 700px;
-    min-height: 1000px;
+    height: 297mm;
+    display: flex;
+    flex-direction: column;
 
 }
 
 .cv-header {
-    grid-column-start: span 2;
-    background: #171219;
+    background:#465775;
+    display: flex;
+    flex-direction: column;
     color: white;
     padding: 20px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    height: 52mm;
 
 }
 
+.information {
+    font-style:italic;
+    margin-top: auto;
+    margin-bottom: -10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 .cv-name {
     font-weight: bold;
     font-size: 50px;
+    margin-bottom: -10px;
 }
 
 .cv-title {
@@ -28,24 +39,40 @@
 }
 
 .cv-main {
-    background: rgb(245, 228, 134);
+    flex-grow: 1;
+    background: rgb(238, 238, 238);
     padding: 20px;
     border-bottom-left-radius: 10px;
+    color: rgb(85, 84, 84);
 
 }
 
 .cv-sidebar {
     padding: 20px;
     border-bottom-right-radius: 10px;
-    background-color:rgb(189, 163, 99);
+    background:#e8effd;
+    color:#6b6b6b;
+
 
 }
 
 .cv-description {
     max-width: 500px;
     overflow-wrap: break-word;
+    margin-bottom: 20px;
 }
 
 h3 {
-    border-bottom: 1px solid gray;
+    color:#465775;
+    border-bottom: 1px solid rgb(182, 182, 182);
+}
+
+.experience, .education{
+    display: flex;
+    gap: 20px;
+    margin: 10px 0 10px 0;
+}
+
+.education-period, .experience-period {
+    width: 150px;
 }
